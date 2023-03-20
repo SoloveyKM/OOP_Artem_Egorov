@@ -10,7 +10,7 @@ class Product:
 
 class User:
 
-    def __init__(self, login, balance=0):
+    def __init__(self, login: str, balance: int=0):
         self.login = login
         self.balance = balance
 
@@ -19,10 +19,10 @@ class User:
         return self.__balance
 
     @balance.setter
-    def balance(self, value):
+    def balance(self, value: int):
         self.__balance = value
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Пользователь {self.login}, баланс - {self.balance}'
 
     def deposit(self, value):
