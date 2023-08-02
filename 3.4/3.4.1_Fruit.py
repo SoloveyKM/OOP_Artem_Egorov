@@ -5,13 +5,28 @@ class Fruit:
         self.price = price
 
     def __eq__(self, other):
-        ...
+        if isinstance(other, Fruit):
+            return self.price == other.price
+        if isinstance(other, (int, float)):
+            return self.price == other
 
     def __lt__(self, other):
-        ...
+        if isinstance(other, Fruit):
+            return self.price < other.price
+        if isinstance(other, (int, float)):
+            return self.price < other
 
     def __le__(self, other):
         return self == other or self < other
+
+    def __gt__(self, other):
+        if isinstance(other, Fruit):
+            return self.price > other.price
+        if isinstance(other, (int, float)):
+            return self.price > other
+
+    def __ge__(self, other):
+        return self == other or self > other
 
 
 if __name__ == '__main__':
