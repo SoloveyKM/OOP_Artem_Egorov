@@ -4,8 +4,24 @@ class ShoppingCart:
         self.items = {}
 
     def __getitem__(self, item):
+        return self.items.get(item, 0)
 
+    def __setitem__(self, item, value):
+        self.items[item] = value
 
+    def __delitem__(self, item):
+        if item in self.items:
+            del self.items[item]
+
+    def add_item(self, item, value=1):
+        self.items[item] = self.items.get(item, 0) + value
+
+    def remove_item(self, item, value=1):
+        if item in self.items:
+            if value >= self.items[item]:
+                del self.items[item]
+            else:
+                self.items[item] -= value
 
 
 if __name__ == '__main__':
