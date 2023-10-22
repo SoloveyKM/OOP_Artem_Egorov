@@ -132,3 +132,4 @@ if __name__ == '__main__':
     tv.channel == 20
 
     print('GOOD')
+
